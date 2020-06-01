@@ -1,0 +1,9 @@
+table {
+  width: 100%;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  width: 480px;
+}

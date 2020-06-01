@@ -1,0 +1,25 @@
+
+<!--
+<div class="left">
+
+  <input type="text" placeholder="book name" #name>
+  <input type="text" placeholder="category" #category>
+
+  <button (click)="addTutorial(name.value,category.value)">Add a Tutorial</button>
+</div>
+-->
+<div class="example-container" id="createBook">
+  <mat-form-field hintLabel="Max 20 characters" appearance="fill" class="input">
+    <input matInput #name maxlength="20">
+    <mat-label>Book title</mat-label>
+    <mat-hint align="end">{{name.value?.length || 0}}/20</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field hintLabel="Max 20 characters" appearance="fill" class="input">
+    <input matInput #category maxlength="20">
+    <mat-label>Book category</mat-label>
+    <mat-hint align="end">{{category.value?.length || 0}}/20</mat-hint>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="addBook(name.value,category.value)" class="input">Create</button>
+</div>

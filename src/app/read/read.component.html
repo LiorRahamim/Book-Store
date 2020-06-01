@@ -1,0 +1,36 @@
+
+<div style="float: left; margin: 1em; max-height: 60em; max-height: 300px; overflow: auto">
+<table mat-table [dataSource]="books" #booksTable style="width: 23em; max-height: 60em">
+
+  <ng-container matColumnDef="actions" style="max-width: 5em">sdfds
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let book">
+      <button mat-icon-button color="warn" (click)="delBook(book.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name" style="width: 20em">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let book">
+      {{book.name}}
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="['actions', 'name']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['actions', 'name'];"></tr>
+</table>
+
+  <!--<mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>-->
+</div>
+
+<mat-form-field style="float: right; margin: 1em; width: 10em">
+  <mat-label>Favorite category</mat-label>
+  <mat-select [(value)]="this.chosenCategory" (selectionChange)="applyFilter()">
+    <mat-option *ngFor="let category of categories$ | async" [value]="category">
+      {{category}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
